@@ -4,20 +4,20 @@ import { DataPassService } from '../data-pass.service';
 @Component({
   selector: 'app-box-one',
   templateUrl: './box-one.component.html',
-  styleUrls: ['./box-one.component.css'], 
-  providers: [DataPassService]
+  styleUrls: ['./box-one.component.css']
 })
 export class BoxOneComponent {
-  heading: string | undefined;
+  @Input() heading: string | undefined;
+  @Output() headingChangeOne = new EventEmitter<string>();
   inputTextOne: string | undefined;
 
 constructor(private dataPassService: DataPassService) { 
-  this.heading = this.dataPassService.getData();
 }
 
 
 onSendOne() {
   this.dataPassService.setData(this.inputTextOne);
+  this.headingChangeOne.emit(this.inputTextOne);
 }
 
 

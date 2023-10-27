@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class DataPassService {
 
 
-  private data: any = 'hello';
+  private data: any = "Hello";
 
-  setData(data: any) {
-    this.data = data;
+  setData(data: any): void {
+    this.data = data;  
   }
 
   getData() {

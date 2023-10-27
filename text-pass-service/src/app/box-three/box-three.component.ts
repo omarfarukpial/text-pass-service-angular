@@ -4,20 +4,19 @@ import { DataPassService } from '../data-pass.service';
 @Component({
   selector: 'app-box-three',
   templateUrl: './box-three.component.html',
-  styleUrls: ['./box-three.component.css'], 
-  providers: [DataPassService]
+  styleUrls: ['./box-three.component.css']
 })
 export class BoxThreeComponent {
-  heading: string | undefined;
+  @Input() heading: string | undefined;
+  @Output() headingChangeThree = new EventEmitter<string>();
   inputTextThree: string | undefined;
 
 
+
   constructor(private dataPassService: DataPassService) {
-    this.heading = this.dataPassService.getData();
   }
   onSendThree() {
-    this.dataPassService.setData(this.inputTextThree);
-    console.log(this.heading);
-    
+    this.dataPassService.setData(this.inputTextThree); 
+    this.headingChangeThree.emit(this.inputTextThree);
   }
 }

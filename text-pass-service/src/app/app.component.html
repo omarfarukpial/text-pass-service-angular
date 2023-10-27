@@ -6,13 +6,13 @@
   </nav>
   <div class="container">
     <div class="container d-flex justify-content-center border border-dark rounded m-5">
-      <app-box-one></app-box-one>
+      <app-box-one [heading]="componentOneHeading" (headingChangeOne)="onHeadingChangeOne($event)"></app-box-one>
     </div>
     <div class="container d-flex justify-content-center border border-dark rounded m-5">
-      <app-box-two></app-box-two>
+      <app-box-two [heading]="componentTwoHeading" (headingChangeTwo)="onHeadingChangeTwo($event)"></app-box-two>
     </div>
     <div class="container d-flex justify-content-center border border-dark rounded m-5">
-      <app-box-three></app-box-three> 
+      <app-box-three [heading]="componentThreeHeading" (headingChangeThree)="onHeadingChangeThree($event)"></app-box-three> 
     </div>
   </div>
 </main>
